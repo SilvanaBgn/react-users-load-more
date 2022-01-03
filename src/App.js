@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import axios from 'axios';
+import UsersList from './components/UsersList';
 
 export default class App extends React.Component {
   state = {
@@ -46,6 +47,7 @@ export default class App extends React.Component {
         <Header />
         {isLoading && <p className="loading">Loading...</p>}
         {errorMsg && <p className="errorMsg">{errorMsg}</p>}
+        <UsersList users={this.state.users} />
       </div>
     );
   }
