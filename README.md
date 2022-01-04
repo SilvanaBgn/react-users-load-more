@@ -2,7 +2,7 @@
 
 # Summary
 
-This is a ReactJS project, a SPA that request random users with a "Load more" button. Using Random Users API [RandomAPI] (https://randomuser.me/) to get random list of users.
+This is a ReactJS project, a SPA that request random users with a "Load more" button. Using [Random Users API](https://randomuser.me/) to get random list of users.
 
 **You can RUN THE PROJECT**: go to this url []()
 
