@@ -9,7 +9,13 @@ body {
   background-color: #dcd3ea;
 }
 
-.header {
+.main-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.header,
+.subheader {
   margin: 1rem auto;
   text-align: center;
   letter-spacing: 1px;
