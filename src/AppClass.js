@@ -3,7 +3,7 @@ import axios from 'axios';
 import Subheader from './components/Subheader';
 import UsersList from './components/UsersList';
 
-export default class App extends React.Component {
+export default class AppClass extends React.Component {
   state = {
     users: [],
     isLoading: false,
@@ -12,20 +12,20 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    console.log('> componentDidMount');
-    this.loadUsers();    
+    console.log('[AppClass] > componentDidMount');
+    this.loadUsers();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('> componentDidUpdate');
+    console.log('[AppClass] > componentDidUpdate');
     if (prevState.page !== this.state.page ) {
       this.loadUsers();
     }
   }
 
   loadMore = () => {
-    console.log('> loadMore function', this);
-    this.setState((prevState) => { 
+    console.log('[AppClass] > loadMore function', this);
+    this.setState((prevState) => {
       return {
         page: prevState.page + 1
       };
@@ -33,23 +33,22 @@ export default class App extends React.Component {
   }
 
   loadUsers = () => {
-    console.log('> loadUsers function');
+    console.log('[AppClass] > loadUsers function');
     // let newUsers = this.getNewUsers();
     this.setState({ isLoading: true });
     let newUsers = [];
     axios
       .get(`https://randomuser.me/api/?page=${this.state.page}&results=3`)
       .then((response) => {
-        console.log('then-begin')
         this.setState({ errorMsg: '' })
         newUsers = response.data.results;
-        console.log('then-end', newUsers)
+        console.log('[AppClass] then-end', newUsers)
       })
       .catch(() => {
         this.setState({ errorMsg: 'Error while loading data. Try again later.' })
       })
       .finally(() => {
-        console.log('users =', this.state.users, 'newUsers =', newUsers);  
+        console.log('[AppClass] users =', this.state.users, 'newUsers =', newUsers);
         this.setState((prevState) => {
           return {
             isLoading: false,
@@ -85,7 +84,7 @@ export default class App extends React.Component {
       .catch((error) => console.log('Error:', error)); */
 
   render() {
-    console.log('> Render function');
+    console.log('[AppClass] > Render function');
     const { users, isLoading, errorMsg } = this.state;
 
     return (
@@ -99,7 +98,7 @@ export default class App extends React.Component {
           </button>
         </div>
       </aside>
-      
+
     );
   }
 }
