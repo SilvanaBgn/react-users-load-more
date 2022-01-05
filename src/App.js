@@ -12,19 +12,19 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    console.log('componentDidMount');
+    console.log('> componentDidMount');
     this.loadUsers();    
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
+    console.log('> componentDidUpdate');
     if (prevState.page !== this.state.page ) {
       this.loadUsers();
     }
   }
 
   loadMore = () => {
-    console.log('loadMore function', this);
+    console.log('> loadMore function', this);
     this.setState((prevState) => { 
       return {
         page: prevState.page + 1
@@ -33,7 +33,7 @@ export default class App extends React.Component {
   }
 
   loadUsers = () => {
-    console.log('loadUsers function');
+    console.log('> loadUsers function');
     // let newUsers = this.getNewUsers();
     this.setState({ isLoading: true });
     let newUsers = [];
@@ -85,7 +85,7 @@ export default class App extends React.Component {
       .catch((error) => console.log('Error:', error)); */
 
   render() {
-    console.log('Render function');
+    console.log('> Render function');
     const { users, isLoading, errorMsg } = this.state;
 
     return (
