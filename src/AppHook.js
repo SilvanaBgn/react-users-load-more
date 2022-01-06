@@ -9,32 +9,35 @@ export default function AppHook() {
   const [errorMsg, setErrorMsg] = useState('');
   const [page, setPage] = useState(0);
 
+
   useEffect(() => {
     console.log('[AppHook] > loadUsers useEffect()');
-    function loadUsers () {
-      // let newUsers = this.getNewUsers();
-      setLoadingBool(true);
-      let newUsers = [];
-      axios
+
+    async function getNewUsers() {
+      console.log('[AppHook] > getNewUsers function');
+      let newUsers = await axios
         .get(`https://randomuser.me/api/?page=${page}&results=3`)
         .then((response) => {
           setErrorMsg('')
-          newUsers = response.data.results;
-          console.log('[AppHook] axios then-end', newUsers)
+          return response.data.results;
         })
         .catch(() => {
           setErrorMsg('[AppHook] Error while loading data. Try again later.')
+          return [];
         })
-        .finally(() => {
-          console.log('[AppHook] users =', users, 'newUsers =', newUsers);
-          setLoadingBool(false);
-          setUsers([...users, ...newUsers]);
-        });
+      return newUsers;
     }
-    loadUsers();
+
+    setLoadingBool(true);
+    getNewUsers()
+      .then((newUsers)=>{
+        console.log('[AppHook] > getNewUsers - then');
+        setUsers((prevUsers) => [...prevUsers, ...newUsers]); // param instead of state, to avoid warning with useEffect() []
+        setLoadingBool(false);
+      })
   }, [page]);
 
-  function loadMore() {
+  const loadMore = () => {
     setPage(page + 1);
   }
 
