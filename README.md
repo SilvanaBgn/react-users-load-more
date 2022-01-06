@@ -4,17 +4,19 @@
 
 This is a ReactJS project, a SPA that request random users with a "Load more" button. Using [Random Users API](https://randomuser.me/) to get random list of users.
 
-**You can RUN THE PROJECT**: go to this url []()
+**You can RUN THE PROJECT**: go to this url [https://silvanabgn.github.io/react-users-load-more/](https://silvanabgn.github.io/react-users-load-more/)
 
 # Motivation
 
-I wanted to create a page with React using useState/useEffect hooks and API requests with axios.
+I wanted to create a page with React using Class cycle (componentDidMount/componentDidUpdate) vs Hooks cycle (useState/useEffect), and API requests with axios.
 
 ## Technical topics included
 
 - ReactJS - create-react-app
+- Class cycle (componentDidMount/componentDidUpdate)
 - React basic hooks (useState/useEffect)
 - Axios library (API request)
+- async/await with hooks
 
 # Development section
 
