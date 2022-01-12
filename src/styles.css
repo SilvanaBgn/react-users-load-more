@@ -48,7 +48,9 @@ body {
   margin-top: 0.3rem;
 }
 
-.user-image img {
+.user-image {
+  width: 72px;
+  height: 77px;
   border-radius: 50%;
 }
 
@@ -58,6 +60,7 @@ body {
 }
 
 .btn-grad {
+  width: 185px;
   font-size: 1rem;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -80,7 +83,13 @@ body {
   text-decoration: none;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
+  .main-section {
+    display: block;
+  }
+  aside {
+    margin-bottom: 3rem;
+  }
   .random-user {
     flex-direction: column;
     justify-content: center;
