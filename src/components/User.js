@@ -1,21 +1,19 @@
 const User = ({ name, location, email, picture }) => {
   return (
-    <div className="random-user">
-      <div className="user-image">
-        <img src={picture.medium} alt={name.first} />
-      </div>
+    <li className="random-user">
+      <img className="user-image" src={picture.medium} alt={name.first} />
       <div className="user-details">
-        <div>
+        <p>
           <b>Name:</b> {name.first} {name.last}
-        </div>
-        <div>
+        </p>
+        <p>
           <b>Country:</b> {location.country}
-        </div>
-        <div>
+        </p>
+        <p>
           <b>Email:</b> {email}
-        </div>
+        </p>
       </div>
-    </div>
+    </li>
   );
 };
 
