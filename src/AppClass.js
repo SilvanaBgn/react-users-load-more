@@ -58,31 +58,6 @@ export default class AppClass extends React.Component {
       });
   }
 
-  /* getNewUsers = () => {
-    let usersArray = [];
-    axios
-      .get(`https://randomuser.me/api/?page=${this.state.page}&results=3`)
-      .then((response) => {
-        console.log('then')
-        this.setState({ errorMsg: '' })
-        usersArray = response.data.results;
-        console.log('then', usersArray)
-      })
-      .catch(() => {
-        this.setState({ errorMsg: 'Error while loading data. Try again later.' })
-      })
-      .finally(() => {
-        this.setState({ isLoading: false });
-      });
-      return usersArray;
-  } */
-
-  /*fetch('https://randomuser.me/api/?page=0&results=10')
-      .then((response) => {
-        console.log('Axios users:', response.json());
-      })
-      .catch((error) => console.log('Error:', error)); */
-
   render() {
     console.log('[AppClass] > Render function');
     const { users, isLoading, errorMsg } = this.state;

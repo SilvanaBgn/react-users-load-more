@@ -9,7 +9,6 @@ export default function AppHook() {
   const [errorMsg, setErrorMsg] = useState('');
   const [page, setPage] = useState(0);
 
-
   useEffect(() => {
     console.log('[AppHook] > loadUsers useEffect()');
 
@@ -43,7 +42,7 @@ export default function AppHook() {
 
   return (
     <aside>
-      <Subheader title = 'With Hooks-cycle'/>
+      <Subheader title = 'With Hooks-cycle' />
       {errorMsg && <p className="errorMsg">{errorMsg}</p>}
       <UsersList users={users} />
       <div className="load-more">
